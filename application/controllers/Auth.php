@@ -31,7 +31,6 @@ class Auth extends CI_Controller {
           Name: '.$_SESSION['user']['name'].'<br />
           <img src="'.$_SESSION['user']['picture'].'" width="150px" /><br />
           Email: '.$_SESSION['user']['email'].'<br />
-          Last login: '.date($_SESSION['user']['updated_at']).'<br />
           <a href="'.base_url('auth/logout').'">Logout</a>
           ';
         }
@@ -45,8 +44,8 @@ class Auth extends CI_Controller {
           // redirect to Login
           header('Location: ' . base_url('auth/login'));
       } else {
-        $this->session->set_userdata('user', $userInfo);
-        header('Location: ' . base_url());
+	        $this->session->set_userdata('user', $userInfo);
+	        header('Location: ' . base_url());
       }
     }
 
